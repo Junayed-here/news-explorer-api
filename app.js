@@ -55,6 +55,8 @@ app.post('/api/signin', celebrate({
     }),
 }), login);
 
+console.log("app run successful!");
+
 app.use('/', auth, userRouter);
 app.use('/', auth, articleRouter);
 
@@ -62,7 +64,6 @@ app.use('*', (req, res, next) => {
     next(new NotFound('Requested resource not found!!!'));
 });
 
-console.log("app run successful!");
 
 app.use(errorLogger);
 app.use(errors());
