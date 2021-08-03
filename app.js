@@ -40,6 +40,8 @@ app.options('*', cors());
 app.use(requestLogger);
 app.use(limiter);
 
+console.log("app run successful!", DATABASEURL);
+
 app.post('/api/signup', celebrate({
     body: Joi.object().keys({
         name: Joi.string().required(),
@@ -55,7 +57,6 @@ app.post('/api/signin', celebrate({
     }),
 }), login);
 
-console.log("app run successful!");
 
 app.use('/', auth, userRouter);
 app.use('/', auth, articleRouter);
