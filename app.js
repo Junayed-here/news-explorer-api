@@ -14,7 +14,10 @@ require('dotenv').config();
 const { createUser, login } = require('./controllers/user');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const {
+    PORT = 3000,
+    DATABASEURL = "mongodb://localhost:27017/newsExplorer",
+} = process.env;
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/newsExplorer', {
