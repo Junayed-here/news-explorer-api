@@ -62,6 +62,8 @@ app.use('*', (req, res, next) => {
     next(new NotFound('Requested resource not found!!!'));
 });
 
+console.log("app run successful!");
+
 app.use(errorLogger);
 app.use(errors());
 app.use(conflict);
