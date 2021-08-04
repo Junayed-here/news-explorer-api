@@ -2,4 +2,4 @@
 
 News Explorer Api
 
-- https://news-explorer-api-junayed.herokuapp.com
+- https://news-explorer-junayed.herokuapp.com

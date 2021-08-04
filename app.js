@@ -14,10 +14,13 @@ require('dotenv').config();
 const { createUser, login } = require('./controllers/user');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const {
+    PORT = 3000,
+    DATABASEURL = "mongodb://localhost:27017/newsExplorer",
+} = process.env;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/newsExplorer', {
+mongoose.connect(DATABASEURL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -52,12 +55,14 @@ app.post('/api/signin', celebrate({
     }),
 }), login);
 
+
 app.use('/', auth, userRouter);
 app.use('/', auth, articleRouter);
 
 app.use('*', (req, res, next) => {
     next(new NotFound('Requested resource not found!!!'));
 });
+
 
 app.use(errorLogger);
 app.use(errors());
