@@ -5,20 +5,14 @@ const isDate = require('validator/lib/isDate');
 const articleSchema = new mongoose.Schema({
   keyword: {
     type: String,
-    minlength: 2,
-    maxlength: 30,
     required: true,
   },
   title: {
     type: String,
-    minlength: 2,
-    maxlength: 30,
     required: true,
   },
   text: {
     type: String,
-    minlength: 2,
-    maxlength: 300,
     required: true,
   },
   date: {
@@ -31,8 +25,6 @@ const articleSchema = new mongoose.Schema({
   },
   source: {
     type: String,
-    minlength: 2,
-    maxlength: 30,
     required: true,
   },
   link: {
