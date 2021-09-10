@@ -6,11 +6,11 @@ const {
 
 router.post('/api/articles', celebrate({
   body: Joi.object().keys({
-    keyword: Joi.string().max(30).min(2).required(),
-    title: Joi.string().max(30).min(2).required(),
-    date: Joi.string().max(30).min(2).required(),
-    text: Joi.string().max(300).min(2).required(),
-    source: Joi.string().max(30).min(2).required(),
+    keyword: Joi.string().required(),
+    title: Joi.string().required(),
+    date: Joi.string().required(),
+    text: Joi.string().required(),
+    source: Joi.string().required(),
     link: Joi.string().pattern(/^https?:\/\/(www\.)?([^/]+)(\/[\w\d._~:/?%#[\]@!$&'()*+,;="-]*)?/).required(),
     image: Joi.string().pattern(/^https?:\/\/(www\.)?([^/]+)(\/[\w\d._~:/?%#[\]@!$&'()*+,;="-]*)?/).required(),
   }),
